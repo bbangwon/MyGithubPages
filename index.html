@@ -10,19 +10,46 @@
     <title>간단한 지도 표시하기</title>
     <script
       type="text/javascript"
-      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=gshu50shhc"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=83bfuniegk"
     ></script>
   </head>
   <body>
-    <div id="map" style="width: 100%; height: 400px"></div>
+    <div id="map" style="width: 100%; height: 1080px"></div>
 
     <script>
       var mapOptions = {
         center: new naver.maps.LatLng(37.3595704, 127.105399),
-        zoom: 10,
+        zoom: 15,
       };
 
       var map = new naver.maps.Map("map", mapOptions);
+
+      var polygon = new naver.maps.Polygon({
+        map: map,
+        paths: [
+          [
+            new naver.maps.LatLng(37.37544345085402, 127.11224555969238),
+            new naver.maps.LatLng(37.37230584065902, 127.10791110992432),
+            new naver.maps.LatLng(37.35975408751081, 127.10795402526855),
+            new naver.maps.LatLng(37.359924641705476, 127.11576461791992),
+            new naver.maps.LatLng(37.35931064479073, 127.12211608886719),
+            new naver.maps.LatLng(37.36043630196386, 127.12293148040771),
+            new naver.maps.LatLng(37.36354029942161, 127.12310314178465),
+            new naver.maps.LatLng(37.365211629488016, 127.12456226348876),
+            new naver.maps.LatLng(37.37544345085402, 127.11224555969238),
+          ],
+        ],
+        fillColor: "#ff0000",
+        fillOpacity: 0.3,
+        strokeColor: "#ff0000",
+        strokeOpacity: 0.6,
+        strokeWeight: 3,
+      });
+
+      var marker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.3595704, 127.105399),
+        map: map,
+      });
     </script>
   </body>
 </html>
